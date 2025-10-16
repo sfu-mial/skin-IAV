@@ -99,7 +99,7 @@ def main(config):
     )
 
     accelerator.init_trackers(
-        project_name="skin-iav-prediction",
+        project_name="PROJECT_NAME",
         config=config,
     )
 

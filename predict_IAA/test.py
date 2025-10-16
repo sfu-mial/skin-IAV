@@ -101,7 +101,7 @@ def main(config):
 
     # Initialize the experiment.
     accelerator.init_trackers(
-        project_name="skin-iav-prediction",
+        project_name="PROJECT_NAME",
         config=config,
     )
 

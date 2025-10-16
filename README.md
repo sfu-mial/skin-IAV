@@ -1,7 +1,10 @@
 # Inter-Annotator Variability in Skin Lesion Segmentation
 <!-- Ruff badge -->
 <!-- arXiv badge -->
-[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff) [![arXiv](https://img.shields.io/badge/arXiv-2508.09381-b31b1b.svg)](https://arxiv.org/abs/2508.09381)
+<!-- DOI badge -->
+<!-- Citation badge - commented out for now -->
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff) [![arXiv](https://img.shields.io/badge/arXiv-2508.09381-b31b1b.svg)](https://arxiv.org/abs/2508.09381) [![DOI](https://zenodo.org/badge/DOI/10.1007/978-3-032-05825-6_3.svg)](https://doi.org/10.1007/978-3-032-05825-6_3) 
+<!-- [![Citation](https://api.juleskreuer.eu/citation-badge.php?doi=10.1007/978-3-032-05825-6_3)](https://scholar.google.com/citations?view_op=view_citation&hl=en&citation_for_view=HagMdKMAAAAJ:J_g5lzvAfSwC) -->
 
 
 ![IMA++ Overview](OverviewFigure.png)
