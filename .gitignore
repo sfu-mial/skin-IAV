@@ -2,6 +2,11 @@
 predict_IAA/saved_models/**/*.pth
 predict_IAA/saved_models/**/*.csv
 
+# Ignore all the .pth and the .csv files in predict_finetune_diag/saved_models/
+predict_finetune_diag/saved_models/**/*.pth
+predict_finetune_diag/saved_models/**/*.csv
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
