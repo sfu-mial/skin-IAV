@@ -84,18 +84,15 @@ def main(config):
     # Prepare the model and dataloader.
     model, dloaders_test = accelerator.prepare(model, dloaders_test)
 
-    # Load the best model weights
+    # Load the best model weights.
     best_model_path = expt_dir / "best_model.pth"
     if not best_model_path.exists():
-        raise FileNotFoundError(
-            f"Best model not found at {best_model_path}. "
-            "Please run training first to generate the best model."
-        )
+        raise FileNotFoundError(f"Best model not found at {best_model_path}.")
 
-    logger.info(f"Loading best model from {best_model_path}")
+    logger.info(f"Loading best model from {best_model_path}.")
     unwrapped_model = accelerator.unwrap_model(model)
     unwrapped_model.load_state_dict(
-        torch.load(best_model_path, map_location="cpu")
+        torch.load(best_model_path, map_location=accelerator.device)
     )
     model.eval()
 
