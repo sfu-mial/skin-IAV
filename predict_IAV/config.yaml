@@ -1,0 +1,19 @@
+mixed_precision: "fp16"
+dropout_rate: 0.5
+epochs: 50
+eval_batch_size: 64
+eval_num_workers: 4
+expt_dir: "./saved_models/"
+logs_dir: "/path/to/logs/"
+img_dir: "/path/to/images/"
+loss: "smooth_l1"
+lr: 0.01
+metric: "dice_score_mean"
+num_classes: 1
+pretrained: True
+seed: # Set your own seed here.
+test_file_list: "/path/to/test_partition_metadata.csv"
+train_batch_size: 32
+train_file_list: "/path/to/train_partition_metadata.csv"
+train_num_workers: 4
+val_file_list: "/path/to/val_partition_metadata.csv"
