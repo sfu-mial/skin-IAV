@@ -1,0 +1,105 @@
+{
+  "ISIC2018": {
+    "image_col": "image",
+    "non_mel_labels": ["NV", "BCC", "AKIEC", "BKL", "DF", "VASC"],
+    "base_dir": "/path/to/ISIC2018/",
+    "processed_dir": "/path/to/ISIC2018_resized_{target_img_size}/",
+    "local_partitions_dir": "./partitions/ISIC2018/",
+    "splits": {
+      "train": {
+        "image_dir": "{base_dir}/train",
+        "metadata_path": "{base_dir}/train.csv",
+        "dest_image_dir": "{processed_dir}/train"
+      },
+      "val": {
+        "image_dir": "{base_dir}/val",
+        "metadata_path": "{base_dir}/val.csv",
+        "dest_image_dir": "{processed_dir}/val"
+      },
+      "test": {
+        "image_dir": "{base_dir}/test",
+        "metadata_path": "{base_dir}/test.csv",
+        "dest_image_dir": "{processed_dir}/test"
+      }
+    },
+    "processed_metadata_paths": {
+      "train": "{processed_dir}/train.csv",
+      "val": "{processed_dir}/val.csv",
+      "test": "{processed_dir}/test.csv"
+    }
+  },
+  "ISIC2019": {
+    "image_col": "image",
+    "non_mel_labels": ["NV", "BCC", "AK", "BKL", "DF", "VASC", "SCC", "UNK"],
+    "base_dir": "/path/to/ISIC2019/",
+    "processed_dir": "/path/to/ISIC2019_resized_{target_img_size}/",
+    "local_partitions_dir": "./partitions/ISIC2019/",
+    "splits": {
+      "train": {
+        "image_dir": "{base_dir}/train",
+        "metadata_path": "{base_dir}/train.csv",
+        "dest_image_dir": "{processed_dir}/train"
+      },
+      "test": {
+        "image_dir": "{base_dir}/test",
+        "metadata_path": "{base_dir}/test.csv",
+        "dest_image_dir": "{processed_dir}/test"
+      }
+    },
+    "processed_metadata_paths": {
+      "train": "{processed_dir}/train.csv",
+      "test": "{processed_dir}/test.csv"
+    }
+  },
+  "derm7pt": {
+    "image_col": ["derm", "clinic"],
+    "non_mel_labels": ["NEV", "BCC", "MISC", "SK"],
+    "base_dir": "/path/to/derm7pt/",
+    "processed_dir": "/path/to/derm7pt_resized_{target_img_size}/",
+    "source_image_dir": "{base_dir}/Images/",
+    "dest_image_dir": "{processed_dir}/Images/",
+    "processed_metadata_dir": "{processed_dir}/meta",
+    "local_partitions_dir": "./partitions/derm7pt/",
+    "splits": {
+      "train": {
+        "metadata_path": "{base_dir}/meta/train.csv"
+      },
+      "val": {
+        "metadata_path": "{base_dir}/meta/val.csv"
+      },
+      "test": {
+        "metadata_path": "{base_dir}/meta/test.csv"
+      }
+    },
+    "processed_metadata_paths": {
+      "train": "{processed_metadata_dir}/train.csv",
+      "val": "{processed_metadata_dir}/val.csv",
+      "test": "{processed_metadata_dir}/test.csv"
+    }
+  },
+  "PH2": {
+    "image_col": "image_path",
+    "base_dir": "/path/to/PH2/",
+    "processed_dir": "/path/to/PH2_resized_{target_img_size}/",
+    "source_image_dir": "{base_dir}/Images/",
+    "dest_image_dir": "{processed_dir}/Images/",
+    "processed_metadata_dir": "{processed_dir}/DiagnosisLabels/",
+    "local_partitions_dir": "./partitions/PH2/",
+    "splits": {
+      "train": {
+        "metadata_path": "{base_dir}/meta/train.csv"
+      },
+      "val": {
+        "metadata_path": "{base_dir}/meta/val.csv"
+      },
+      "test": {
+        "metadata_path": "{base_dir}/meta/test.csv"
+      }
+    },
+    "processed_metadata_paths": {
+      "train": "{processed_metadata_dir}/train.csv",
+      "val": "{processed_metadata_dir}/val.csv",
+      "test": "{processed_metadata_dir}/test.csv"
+    }
+  }
+} 
