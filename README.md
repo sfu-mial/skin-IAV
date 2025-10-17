@@ -103,7 +103,7 @@ The pre-trained models are hosted on 🤗 Hugging Face for easy access and repro
       * [`ISIC2018/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/diag/FT/ISIC2018)
       * [`ISIC2019/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/diag/FT/ISIC2019)
   * [`MTW/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW): (Weighted) multi-task learning models.
-    * [`IMApp/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW/IMApp): Contains the best model from 3 runs on the top 3 performing backbones for the (weighted) multi-task learning model (`MTW`) **trainedon the IMA++ dataset**, including the ablation study results on varying the value of α (Eqn. 3 in the paper). So, each of the following subfolders contains 5 directories each: MT_{0.1, 0.2, 0.5, 0.8, 0.9}, each of which then in turn contains the best model from 3 runs.
+    * [`IMApp/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW/IMApp): Contains the best model from 3 runs on the top 3 performing backbones for the (weighted) multi-task learning model (`MTW`) **trained on the IMA++ dataset**, including the ablation study results on varying the value of α (Eqn. 3 in the paper). So, each of the following subfolders contains 5 directories each: MT_{0.1, 0.2, 0.5, 0.8, 0.9}, each of which then in turn contains the best model from 3 runs.
       * [`efficientnetb1/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW/IMApp/efficientnetb1)
       * [`mobilenetv2/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW/IMApp/mobilenetv2)
       * [`resnet18/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW/IMApp/resnet18)
@@ -124,12 +124,21 @@ Coming soon.
 
 If you find this work useful, please cite our paper:
 
+Kumar Abhishek, Jeremy Kawahara, Ghassan Hamarneh, "[What Can We Learn from Inter-Annotator Variability in Skin Lesion Segmentation?](http://www.cs.sfu.ca/~hamarneh/ecopy/miccai_isic2025.pdf)", Medical Image Computing and Computer-Assisted Intervention (MICCAI) ISIC Skin Image Analysis Workshop (ISIC), pp. 23-33, 2025, DOI: [10.1007/978-3-032-05825-6_3](https://doi.org/10.1007/978-3-032-05825-6_3).
+
+The corresponding BibTeX entry is:
+
 ```bibtex
-@article{abhishek2025what,
-  title={What Can We Learn from Inter-Annotator Variability in Skin Lesion Segmentation?},
-  author={Abhishek, Kumar and Kawahara, Jeremy and Hamarneh, Ghassan},
-  booktitle={Medical Image Computing and Computer-Assisted Intervention (MICCAI) ISIC Skin Image Analysis Workshop (MICCAI ISIC)},
-  howpublished={https://arxiv.org/abs/2508.09381},
-  year={2025}
+@InProceedings{abhishek2025what,
+  title = {What Can We Learn from Inter-Annotator Variability in Skin Lesion Segmentation?},
+  author = {Abhishek, Kumar and Kawahara, Jeremy and Hamarneh, Ghassan},
+  booktitle = {Proceedings of the International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI) ISIC Skin Image Analysis Workshop},
+  month = {September},
+  volume = {16149},
+  pages = {23-33},
+  year = {2025},
+  doi = {10.1007/978-3-032-05825-6_3},
+  url = {https://link.springer.com/chapter/10.1007/978-3-032-05825-6_3},
+  year = {2025}
 }
 ```
