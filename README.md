@@ -26,7 +26,95 @@ In this work, we explore the relationship between inter-annotator agreement (IAA
 
 # Code
 
-Training and evaluation code and model weights will be made available soon.
+There are two primary folders in this repository:
+- [`predict_IAA`](predict_IAA/): This folder contains the code for predicting IAA from images. This is done on the IMA++ dataset.
+- [`predict_finetune_diag`](predict_finetune_diag/): This folder contains the code for predicting diagnosis and IAA from images in a multi-task learning framework. Since only the IMA++ dataset contains IAA scores, this folder contains code to train diagnosis prediction models and multi-task learningmodels on the IMA++ dataset. Moreover, this folder also contains code to finetune both these kinds of models on four other dermoscopic datasets: PH2, derm7pt, ISIC 2018, and ISIC 2019.
+
+<details>
+<summary>Repository Structure</summary>
+
+### [`predict_IAA`](predict_IAA/):
+
+This folder contains the code for predicting IAA from images. This is done on the IMA++ dataset.
+- `dataloader.py`: The dataloader for IAA prediction on the IMA++ dataset.
+- `train.py`: Training script.
+- `test.py`: Testing script.
+- `config.yaml`: Configuration file for the experiments.
+- `compute_test_metrics.py`: Script to compute the test metrics (MAE, MSE, PCC, KS test p-value, Mann-Whitney U test p-value) for the IAA prediction model.
+- `run.sh`: Bash script to train and test all models.
+- `cam_visualization.py`: Script to visualize the predictions of the model on the test partition using the specified CAM algorithm.
+- `overlay_seg_on_cams.py`: Script to overlay the segmentation masks on the CAM images.
+- `overlay_seg_on_imgs.py`: Script to overlay the segmentation masks on the images.
+- `saved_models/`: Folder containing saved models for the IAA prediction model (empty on GitHub, see below).
+
+
+### [`predict_finetune_diag`](predict_finetune_diag/):
+
+This folder contains the code for diagnosis prediction (`diag`) and multi-task learning (`MTW`) predicting diagnosis and IAA from images in a multi-task learning framework. 
+
+The following files are present in this folder:
+* `configs/`: Configuration files for the training and finetuning (`FT`) of the diagnosis prediction (`diag`) and multi-task learning (`MTW`) models.
+  * `IMApp/`: Configuration files for the training of the diagnosis prediction (`diag`) and multi-task learning (`MTW`) models on the IMA++ dataset.
+  * `FT/`: Configuration files for the finetuning of the diagnosis prediction (`diag`) and multi-task learning (`MTW`) models on the four other dermoscopic datasets: PH2, derm7pt, ISIC 2018, and ISIC 2019.
+* `data_preparation/`: Code to prepare datasets for training and testing.
+  * `prepare_datasets.py`: Script to prepare the datasets for training and testing.
+  * `dataset_configs.json`: Configuration file for all the five datasets.
+  * `partitions/`: Folder containing the processed datasets (empty).
+* `utils/`: Utility functions for the diagnosis prediction (`diag`) and multi-task learning (`MTW`) models.
+  * `loss.py`: Contains the Focal Loss implementation.
+  * `calculate_weights_focalloss.py`: Script to calculate the weights for the Focal Loss based on the class distribution.
+  * `custom_transforms.py`: Implements the RandomRotate90 image transform.
+* `dataloader.py`: The dataloader definitions.
+* {`diag_train.py`, `diag_test.py`}: Training and testing scripts for the diagnosis prediction model (`diag`) on the IMA++ dataset.
+* {`MTW_train.py`, `MTW_test.py`}: Training and testing scripts for the multi-task learning model (`MTW`) on the IMA++ dataset.
+* {FT_diag_train.py, FT_diag_test.py}: Finetuning scripts (training and testing) for the diagnosis prediction model (`diag`) on the four other dermoscopic datasets: PH2, derm7pt, ISIC 2018, and ISIC 2019.
+* {FT_MTW_train.py, FT_MTW_test.py}: Finetuning scripts (training and testing) for the multi-task learning model (`MTW`) on the four other dermoscopic datasets: PH2, derm7pt, ISIC 2018, and ISIC 2019.
+* `saved_models/`: Folder containing saved models for the diagnosis prediction (`diag`) and multi-task learning (`MTW`) models (empty on GitHub, see below).
+
+`networks.py`: Contains the model architecture definition for a flexible multi-task model that can be configured for:
+  - Diagnosis only ('classification' mode)
+  - IAA prediction only ('regression' mode)
+  - Both tasks simultaneously ('multitask' mode)
+
+</details>
+
+
+# Saved Models
+
+The pre-trained models are hosted on 🤗 Hugging Face for easy access and reproducibility: 🤗 **[skin-IAV](https://huggingface.co/kabhishe/skin-IAV)**, which contains all the models in the following directory structure:
+
+<details>
+<summary>Models' Directory Structure</summary>
+
+* [`predict_IAA/saved_models/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_IAA/saved_models): Folder containing saved models for the IAA prediction model with the top 3 performing backbones. Each subfolder contains the best model from 3 runs.
+  * [`efficientnetb1/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_IAA/saved_models/efficientnetb1)
+  * [`mobilenetv2/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_IAA/saved_models/mobilenetv2)
+  * [`resnet18/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_IAA/saved_models/resnet18)
+
+* [`predict_finetune_diag/saved_models/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models): Folder containing saved models for the diagnosis prediction (`diag`) and multi-task learning (`MTW`) models with the top 3 performing backbones. Each subfolder contains the best model from 3 runs.
+  * [`diag/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/diag): Diagnosis-only prediction models.
+    * [`IMApp/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/diag/IMApp): Contains the best model from 3 runs on the top 3 performing backbones for the diagnosis prediction model (`diag`) **trained on the IMA++ dataset**.
+      * [`efficientnetb1/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/diag/IMApp/efficientnetb1)
+      * [`mobilenetv2/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/diag/IMApp/mobilenetv2)
+      * [`resnet18/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/diag/IMApp/resnet18)
+    * [`FT/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/diag/FT): Each of its subfolders contains the best model from 3 runs on the top 3 performing backbones for the diagnosis prediction model (`diag`) that has been **finetuned on the four other dermoscopic datasets**: PH2, derm7pt, ISIC 2018, and ISIC 2019.
+      * [`PH2/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/diag/FT/PH2)
+      * [`derm7pt/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/diag/FT/derm7pt)
+      * [`ISIC2018/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/diag/FT/ISIC2018)
+      * [`ISIC2019/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/diag/FT/ISIC2019)
+  * [`MTW/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW): (Weighted) multi-task learning models.
+    * [`IMApp/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW/IMApp): Contains the best model from 3 runs on the top 3 performing backbones for the (weighted) multi-task learning model (`MTW`) **trainedon the IMA++ dataset**, including the ablation study results on varying the value of α (Eqn. 3 in the paper). So, each of the following subfolders contains 5 directories each: MT_{0.1, 0.2, 0.5, 0.8, 0.9}, each of which then in turn contains the best model from 3 runs.
+      * [`efficientnetb1/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW/IMApp/efficientnetb1)
+      * [`mobilenetv2/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW/IMApp/mobilenetv2)
+      * [`resnet18/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW/IMApp/resnet18)
+    * [`FT/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW/FT): Each of its subfolders contains the best model from 3 runs on the top 3 performing backbones for the (weighted) multi-task learning model (`MTW`) that has been **finetuned on the four other dermoscopic datasets**: PH2, derm7pt, ISIC 2018, and ISIC 2019.
+      * [`PH2/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW/FT/PH2)
+      * [`derm7pt/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW/FT/derm7pt)
+      * [`ISIC2018/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW/FT/ISIC2018)
+      * [`ISIC2019/`](https://huggingface.co/kabhishe/skin-IAV/tree/main/predict_finetune_diag/saved_models/MTW/FT/ISIC2019)
+</details>
+
+
 
 # IMA++ Dataset
 
