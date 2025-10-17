@@ -6,10 +6,17 @@
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff) [![arXiv](https://img.shields.io/badge/arXiv-2508.09381-b31b1b.svg)](https://arxiv.org/abs/2508.09381) [![DOI](https://zenodo.org/badge/DOI/10.1007/978-3-032-05825-6_3.svg)](https://doi.org/10.1007/978-3-032-05825-6_3) 
 <!-- [![Citation](https://api.juleskreuer.eu/citation-badge.php?doi=10.1007/978-3-032-05825-6_3)](https://scholar.google.com/citations?view_op=view_citation&hl=en&citation_for_view=HagMdKMAAAAJ:J_g5lzvAfSwC) -->
 
+## 🏆 Best Paper Award at the ISIC Skin Image Analysis Workshop 2025 🏆
+
+This repository contains the official PyTorch implementation for the paper: "**What Can We Learn from Inter-Annotator Variability in Skin Lesion Segmentation?**", accepted for presentation at the [10th ISIC Skin Image Analysis Workshop](https://workshop.isic-archive.com/2025/), [MICCAI 2025](https://conferences.miccai.org/2025/en/).
+
+> _What Can We Learn from Inter-Annotator Variability in Skin Lesion Segmentation?_<br>
+> Kumar Abhishek, Jeremy Kawahara, Ghassan Hamarneh<br>
+Medical Image Analysis Lab, School of Computing Science, Simon Fraser University, Canada<br>
+> [[DOI]](https://doi.org/10.1007/978-3-032-05825-6_3) [[PDF]](http://www.cs.sfu.ca/~hamarneh/ecopy/miccai_isic2025.pdf) [[Oral Presentation Slides]](https://workshop.isic-archive.com/2025/slides_abhishek.pdf)
 
 ![IMA++ Overview](OverviewFigure.png)
 
-This repository contains the official PyTorch implementation for the paper: "**What Can We Learn from Inter-Annotator Variability in Skin Lesion Segmentation?**", accepted for presentation at the [10th ISIC Skin Image Analysis Workshop](https://workshop.isic-archive.com/2025/), [MICCAI 2025](https://conferences.miccai.org/2025/en/).
 
 In this work, we explore the relationship between inter-annotator agreement (IAA) in skin lesion segmentation and lesion malignancy. We find that malignant lesions are associated with significantly lower agreement among annotators. Leveraging this insight, we show that IAA can be accurately predicted directly from dermoscopic images. Finally, we introduce a multi-task learning model that jointly predicts diagnosis and IAA, achieving a notable improvement in diagnostic accuracy across five datasets.
 
