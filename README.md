@@ -125,7 +125,7 @@ The pre-trained models are hosted on 🤗 Hugging Face for easy access and repro
 
 # IMA++ Dataset
 
-Coming soon.
+The IMA++ dataset is available for download from Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14201692.svg)](https://doi.org/10.5281/zenodo.14201692). The accompanying paper is published in [IEEE Data Descriptions](http://dx.doi.org/10.1109/IEEEDATA.2026.3689801), and the code supporting the analysis of the IMA++ dataset is available in the `IMAplusplus` GitHub repository: [![GitHub](https://img.shields.io/github/stars/sfu-mial/IMAplusplus?style=social)](https://github.com/sfu-mial/IMAplusplus).
 
 # Citation
 
